@@ -8,7 +8,7 @@
     </testsuites>
     <php>
         <server name="BROWSER_NAME" value="chrome" />
-        <server name="API_KEY" value="AIzaSyA0la9HfPpSwyiG3MOoi0hvcTazu-Nhn98" />
+        <server name="API_KEY" value="AIzaSyBr2h0-L3T-yvrTaQWQcn06FZ7NfoMub8I" />
     </php>
     <filter>
         <whitelist>
