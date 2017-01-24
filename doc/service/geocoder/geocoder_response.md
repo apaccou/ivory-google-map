@@ -51,48 +51,30 @@ $formattedAddress = $result->getFormattedAddress();
 
 ### Address informations
 
-The method `getAddressComponents` returns an array containing the separate address components. Each address_component
-typically contains:
-
- - types which is an array indicating the type of the address component.
- - long name which is the full text description or name of the address component as returned by the Geocoder.
- - short name which is an abbreviated textual name for the address component, if available. For example, an address
-   component for the state of Alaska may have a long_name of "Alaska" and a short_name of "AK" using the 2-letter
-   postal abbreviation.
+The method `getAddressComponents` returns an array containing the separate address components. 
 
 ``` php
-foreach ($result->getAddressComponents() as $address) {
-    $longName = $address->getLongName();
-    $shortName = $address->getShortName();
-    $types = $address->getTypes();
-}
+$addressComponents = $result->getAddressComponents();
 ```
 
-You can also filter the address components by type:
+You can also filter address components by type:
 
 ``` php
-foreach ($result->getAddressComponents('route') as $address) {
-    // ...
-}
+$addressComponents = $result->getAddressComponents('route');
 ```
+
+If you want to learn more about the address component, you can read this 
+[documentation](/doc/service/base/address_component.md).
 
 ### Geometry informations
 
-Geometry contains the following information:
-
- - location which is an `Coordinate`.
- - location type stores additional data about the specified location. The available possibilites are describes by the
-   `GeocoderLocationType` constants.
- - viewport which contains the recommended viewport for displaying the returned result, specified as `Bound`.
- - bounds (optionally returned) which stores the bounding box which can fully contain the returned result, specified as
-   `Bound`. Note that these bounds may not match the recommended viewport.
+The method `getGeometry` returns a set of technical geographic informations about your geocoding.
 
 ``` php
-$location = $result->getGeometry()->getLocation()
-$locationType = $result->getGeometry()->getLocationType();
-$viewport = $result->getGeometry()->getViewport();
-$bound = $result->getGeometry()->getBound();
+$geometry = $result->getGeometry();
 ```
+
+If you want to learn more about the gemetry, you can read this [documentation](/doc/service/base/geometry.md).
 
 ### Partial match flag
 
